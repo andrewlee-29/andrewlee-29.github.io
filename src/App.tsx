@@ -1,9 +1,10 @@
 import './App.css'
+import { Routes, Route } from 'react-router-dom'
 import Navbar from './Components/Navbar'
-import { Route, Routes } from 'react-router'
 import About from './Pages/About'
 import Home from './Pages/Home'
-import Projects from './Pages/Project'
+import Project from './Pages/Project'
+
 function App() {
 
   return (
@@ -12,8 +13,8 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} /> 
-          <Route path="/projects" element={<Projects />} />
           <Route path="/about" element={<About />} />
+          <Route path="/project" element={<Project />} />
         </Routes>
       </main>
     </>
