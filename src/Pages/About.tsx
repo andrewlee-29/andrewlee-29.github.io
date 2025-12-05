@@ -1,3 +1,14 @@
+import { 
+  FaJs, 
+  FaReact, 
+  FaNodeJs, 
+  FaPython, 
+  FaJava, 
+  FaDatabase, 
+  FaHtml5, 
+  FaCss3Alt 
+} from 'react-icons/fa6';
+import { motion } from 'framer-motion';
 export default function About() {
   return (
     <section className="max-w-4xl mx-auto px-6 py-10">
@@ -27,14 +38,136 @@ export default function About() {
             I graduated with a Bachelor's degree in Computer Science and Master degree in Data Science. 
             I have worked on various projects ranging from web development to mobile applications.
         </p>
-      <h2 className="text-2xl font-semibold mt-6 mb-2">Skills & Technologies</h2>
-        <ul className="list-disc list-inside text-gray-700 leading-relaxed">
-            <li>JavaScript / TypeScript</li>
-            <li>React</li>
-            <li>Node.js</li>
-            <li>Python/C#/Java</li>
-            <li>MySQL</li>
-            <li>Html/CSS</li>
+      <h2 className="text-2xl font-semibold mt-6 mb-5 ">Skills & Technologies</h2>
+        <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <motion.li 
+            whileHover={{
+              scale: [null, 1.1, 1.4],
+              transition: {
+              duration: 0.5,
+              times: [0, 0.6, 1],
+              ease: ["easeInOut", "easeOut"],},
+            }}
+            transition={{
+              duration: 0.3,
+              ease: "easeOut",
+            }}
+            className="flex flex-col items-center justify-center w-24 h-24 bg-yellow-100 rounded shadow-md hover:shadow-lg transition-shadow">
+              <FaJs className="text-yellow-400 text-3xl mb-2" />
+              <span className="text-xs text-gray-700 text-center">JavaScript/TS</span>
+            </motion.li>
+            <motion.li 
+              whileHover={{
+              scale: [null, 1.1, 1.4],
+              transition: {
+              duration: 0.5,
+              times: [0, 0.6, 1],
+              ease: ["easeInOut", "easeOut"],},
+            }}
+            transition={{
+              duration: 0.3,
+              ease: "easeOut",
+            }}
+            className="flex flex-col items-center justify-center w-24 h-24 bg-cyan-100 rounded shadow-md hover:shadow-lg transition-shadow">
+              <FaReact className="text-cyan-400 text-3xl mb-2" />
+              <span className="text-xs text-gray-700 text-center">React</span>
+            </motion.li>
+            <motion.li
+              whileHover={{
+              scale: [null, 1.1, 1.4],
+              transition: {
+              duration: 0.5,
+              times: [0, 0.6, 1],
+              ease: ["easeInOut", "easeOut"],},
+            }}
+            transition={{
+              duration: 0.3,
+              ease: "easeOut",
+            }}
+            className="flex flex-col items-center justify-center w-24 h-24 bg-green-100 rounded shadow-md hover:shadow-lg transition-shadow">
+              <FaNodeJs className="text-green-600 text-3xl mb-2" />
+              <span className="text-xs text-gray-700 text-center">Node.js</span>
+            </motion.li>
+            <motion.li
+            whileHover={{
+              scale: [null, 1.1, 1.4],
+              transition: {
+              duration: 0.5,
+              times: [0, 0.6, 1],
+              ease: ["easeInOut", "easeOut"],},
+            }}
+            transition={{
+              duration: 0.3,
+              ease: "easeOut",
+            }}
+             className="flex flex-col items-center justify-center w-24 h-24 bg-blue-100 rounded shadow-md hover:shadow-lg transition-shadow">
+              <FaPython className="text-blue-500 text-3xl mb-2" />
+              <span className="text-xs text-gray-700 text-center">Python</span>
+            </motion.li>
+            <motion.li
+            whileHover={{
+              scale: [null, 1.1, 1.4],
+              transition: {
+              duration: 0.5,
+              times: [0, 0.6, 1],
+              ease: ["easeInOut", "easeOut"],},
+            }}
+            transition={{
+              duration: 0.3,
+              ease: "easeOut",
+            }}
+            className="flex flex-col items-center justify-center w-24 h-24 bg-red-100 rounded shadow-md hover:shadow-lg transition-shadow">
+              <FaJava className="text-red-600 text-3xl mb-2" />
+              <span className="text-xs text-gray-700 text-center">Java</span>
+            </motion.li>
+            <motion.li
+            whileHover={{
+              scale: [null, 1.1, 1.4],
+              transition: {
+              duration: 0.5,
+              times: [0, 0.6, 1],
+              ease: ["easeInOut", "easeOut"],},
+            }}
+            transition={{
+              duration: 0.3,
+              ease: "easeOut",
+            }}
+             className="flex flex-col items-center justify-center w-24 h-24 bg-blue-100 rounded shadow-md hover:shadow-lg transition-shadow">
+              <FaDatabase className="text-blue-700 text-3xl mb-2" />
+              <span className="text-xs text-gray-700 text-center">MySQL</span>
+            </motion.li>
+            <motion.li
+            whileHover={{
+              scale: [null, 1.1, 1.4],
+              transition: {
+              duration: 0.5,
+              times: [0, 0.6, 1],
+              ease: ["easeInOut", "easeOut"],},
+            }}
+            transition={{
+              duration: 0.3,
+              ease: "easeOut",
+            }}
+            className="flex flex-col items-center justify-center w-24 h-24 bg-orange-100 rounded shadow-md hover:shadow-lg transition-shadow">
+              <FaHtml5 className="text-orange-600 text-3xl mb-2" />
+              <span className="text-xs text-gray-700 text-center">HTML</span>
+            </motion.li>
+            <motion.li
+            whileHover={{
+              scale: [null, 1.1, 1.4],
+              transition: {
+              duration: 0.5,
+              times: [0, 0.6, 1],
+              ease: ["easeInOut", "easeOut"],},
+            }}
+            transition={{
+              duration: 0.3,
+              ease: "easeOut",
+            }}
+            className="flex flex-col items-center justify-center w-24 h-24 bg-blue-100 rounded shadow-md hover:shadow-lg transition-shadow">
+              <FaCss3Alt className="text-blue-500 text-3xl mb-2" />
+              <span className="text-xs text-gray-700 text-center">CSS</span>
+            </motion.li>
         </ul>
 
         <h2 className="text-2xl font-semibold mt-6 mb-2">Contact Me</h2>
