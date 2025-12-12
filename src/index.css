@@ -1,1 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Electrolize&display=swap');
 @import "tailwindcss";
+
+/* need custom-variant to make toggle dark mode work */
+@custom-variant dark (&:where(.dark, .dark *));
+
+body {
+  font-family: 'Electrolize', sans-serif;
+}

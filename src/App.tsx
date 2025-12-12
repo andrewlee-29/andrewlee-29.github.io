@@ -8,7 +8,7 @@ import Project from './Pages/Project'
 function App() {
 
   return (
-    <>
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       <Navbar />
       <main>
         <Routes>
@@ -17,7 +17,7 @@ function App() {
           <Route path="/projects" element={<Project />} />
         </Routes>
       </main>
-    </>
+    </div>
   )
 }
 
