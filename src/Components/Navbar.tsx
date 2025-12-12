@@ -2,18 +2,27 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
-  const [dark, setDark] = useState(false);
+  // Check localStorage for theme preference, default to dark
+  const getInitialTheme = () => {
+    const stored = localStorage.getItem("theme");
+    if (stored) return stored === "dark";
+    return true; // default to dark
+  };
+
+  const [dark, setDark] = useState(getInitialTheme);
 
   useEffect(() => {
-    // Force add dark class on initial load
-    document.documentElement.classList.add("dark");
-    setDark(true);
-  }, []);
+    if (dark) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [dark]);
 
   const toggleDark = () => {
-    document.documentElement.classList.toggle("dark");
-    setDark(document.documentElement.classList.contains("dark"));
-    console.log(document.documentElement.className); // Debug line
+    setDark((prev) => !prev);
   };
 
   return (
