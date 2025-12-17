@@ -117,7 +117,7 @@ export default function About() {
         </ul>
 
 
-
+        <h2 className="text-2xl font-bold mt-8 text-black dark:text-white">Work Experience</h2>
         <Timeline />
         <h2 className="text-2xl font-semibold mt-6 mb-2 text-black dark:text-white">Contact Me</h2>
         <p className="text-gray-700 leading-relaxed dark:text-gray-300">

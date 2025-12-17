@@ -79,7 +79,6 @@ const Timeline: React.FC = () => {
 
   return (
     <div className="p-8 relative">
-      <h2 className="text-2xl font-bold mb-8 text-black dark:text-white">Work Experience</h2>
       <div className="relative">
         {/* 
           Scroll progress indicator:
