@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 2,
+  "title": "Andrew Lee — Selected A content-first prototype",
+  "extensions": {
+    "scope": "Selected A, canvas/console and B comparison removed per ADR 002. Prototype only.",
+    "tokens": {
+      "background": "#171817",
+      "surface": "#242522",
+      "text": "#f1f1e7",
+      "muted": "#b0b2a6",
+      "line": "#43453c",
+      "accent": "#c3e52b",
+      "display": "Barlow Condensed",
+      "body": "Barlow"
+    },
+    "breakpoints": [
+      {
+        "name": "compact",
+        "value": "max-width:1000px"
+      },
+      {
+        "name": "mobile",
+        "value": "max-width:650px"
+      }
+    ],
+    "motion": "No animation loop. Smooth scroll disabled for reduced motion.",
+    "validation": "Manually updated from prototype source; no generated schema validation claimed."
+  },
+  "components": [],
+  "narrative": "Content-first homepage with introduction, drawing/writing empty states and existing Projects link. See DESIGN.md for current layout."
+}

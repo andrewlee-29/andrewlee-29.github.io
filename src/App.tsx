@@ -4,19 +4,24 @@ import Navbar from './Components/Navbar'
 import About from './Pages/About'
 import Home from './Pages/Home'
 import Project from './Pages/Project'
+import NotFound from './Pages/NotFound'
 import Loader from './Components/Loader'
 import { useEffect, useState } from 'react'
 
 function App() {
-  const [loading, setLoading] = useState(true);
   const location = useLocation();
 
-  // Show loader on initial load and every route change
+  // Each history entry starts with fresh loading state, including back/forward.
+  return <RouteContent key={location.key} />;
+}
+
+function RouteContent() {
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    setLoading(true);
     const timer = setTimeout(() => setLoading(false), 1500); // Adjust duration as needed
     return () => clearTimeout(timer);
-  }, [location]);
+  }, []);
 
   if (loading) {
     return <Loader onComplete={() => setLoading(false)} />;
@@ -30,6 +35,7 @@ function App() {
           <Route path="/" element={<Home />} /> 
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Project />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
     </div>

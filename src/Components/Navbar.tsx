@@ -27,8 +27,8 @@ export default function Navbar() {
 
   return (
     <nav className="w-full bg-sky-200 dark:bg-sky-950 shadow-sm">
-      <div className="max-w-4xl mx-auto flex items-center justify-between px-6 py-4">
-        <div className="text-xl font-semibold text-cyan-700 dark:text-emerald-300">Andrew Lee</div>
+      <div className="max-w-4xl mx-auto flex flex-wrap sm:flex-nowrap items-center justify-between gap-y-3 px-6 py-4">
+        <div className="w-full sm:w-auto text-xl font-semibold text-cyan-700 dark:text-emerald-300">Andrew Lee</div>
         <ul className="flex gap-6 text-gray-700 dark:text-gray-200">
           <li><Link className="hover:text-black dark:hover:text-white" to="/">Home</Link></li>
           <li><Link className="hover:text-black dark:hover:text-white" to="/about">About</Link></li>

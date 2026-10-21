@@ -21,6 +21,7 @@ export default function About() {
       {/* icon link to github profile */}
       <motion.a
         href="https://github.com/andrewlee-29"
+        aria-label="Andrew Lee on GitHub"
         target="_blank"
         rel="noopener noreferrer"
         className="inline-block mb-4"
@@ -32,6 +33,7 @@ export default function About() {
       {/* icon link to linkedin profile */}
       <motion.a
         href="https://www.linkedin.com/in/andrewlee29/"
+        aria-label="Andrew Lee on LinkedIn"
         target="_blank"
         rel="noopener noreferrer"
         className="inline-block mb-4 ml-4"
