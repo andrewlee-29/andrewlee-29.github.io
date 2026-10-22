@@ -1,60 +1,66 @@
 # Andrew Lee — Portfolio
 
-个人作品集，展示简介、技能、工作经历和六个项目。技术栈为 React 19、TypeScript 5.9、Vite 7、Tailwind CSS 4、React Router 7、Framer Motion 和 React Icons。当前是纯前端静态站点，无后端、数据库或环境变量要求。
+A personal portfolio featuring an introduction, skills, work experience, and six projects. The published site uses HTML, CSS, and browser JavaScript bundled by Vite 7, with shared TypeScript content data. The previous React 19 implementation and its dependencies remain in src/ for reference. This is a client-only static website with no backend, database, or required environment variables.
 
-## 本地运行
+## Local Development
 
-2026-10-20 使用 Node.js 24.14.1 和 npm 11.11.0 验证安装与构建。具体依赖版本以 package-lock.json 为准。
+Installation and builds were verified with Node.js 24.14.1 and npm 11.11.0 on 2026-10-20. Refer to package-lock.json for exact dependency versions.
 
 ```sh
 npm ci
 npm run dev
 ```
 
-打开 Vite 输出的本地地址。
+Open the local URL printed by Vite.
 
-| 命令 | 用途 |
+| Command | Purpose |
 | --- | --- |
-| `npm run dev` | 开发服务器 |
-| `npm run build` | TypeScript 检查并构建到 dist/ |
-| `npm run lint` | ESLint 检查 TypeScript/TSX 与原型浏览器 JavaScript |
-| `npm run preview` | 预览已构建的 dist/ |
-| `npm run deploy` | 自动先构建，再通过 gh-pages 发布到远端 |
+| `npm run dev` | Start the development server |
+| `npm run build` | Run TypeScript checks and build to dist/ |
+| `npm run lint` | Lint TypeScript/TSX and prototype browser JavaScript with ESLint |
+| `npm run preview` | Preview the existing dist/ build |
+| `npm run deploy` | Build first, then publish to the remote using gh-pages |
 
-## 内容入口
+## Content and Source Files
 
-| 文件 | 职责 |
+The published entry is index.html. It shares prototypes/style.css, prototypes/prototype.js, and prototypes/profile.js with the design preview. React page and component files listed below belong to the previous implementation.
+
+| File | Responsibility |
 | --- | --- |
-| src/Pages/Home.tsx | 首页介绍 |
-| src/Pages/About.tsx | 简介、技能、学历描述、社交与邮箱链接 |
-| src/data/projects.ts | 六个项目的共享数据，供正式页面与原型使用 |
-| src/data/experiences.ts | 四段工作经历的共享数据，供正式时间线与原型使用 |
-| src/Pages/Project.tsx | 项目列表 |
-| src/Components/Timeline.tsx | 滚动时间线 |
-| src/Components/ProjectCard.tsx | 项目卡片 |
-| src/Components/Navbar.tsx | 导航和深浅色切换 |
-| src/Components/Loader.tsx | 加载动画 |
-| src/index.css | 全局字体、Tailwind 和深色模式规则 |
-| index.html / public/logo.svg | 页面元信息和 favicon |
+| src/Pages/Home.tsx | Homepage introduction |
+| src/Pages/About.tsx | Biography, skills, education, social links, and email |
+| src/data/projects.ts | Shared data for six projects, used by production pages and the prototype |
+| src/data/experiences.ts | Shared data for four work experiences, used by the production timeline and prototype |
+| src/Pages/Project.tsx | Project list |
+| src/Components/Timeline.tsx | Scroll-driven timeline |
+| src/Components/ProjectCard.tsx | Project cards |
+| src/Components/Navbar.tsx | Navigation and light/dark theme toggle |
+| src/Components/Loader.tsx | Loading animation |
+| src/index.css | Global fonts, Tailwind, and dark-mode rules |
+| index.html / public/logo.svg | Page metadata and favicon |
 
-## 部署
+## Deployment
 
-配置面向 GitHub Pages 用户站点：Vite base 为 `/`，HashRouter 页面路径为 `/#/`、`/#/about` 和 `/#/projects`。
+The configuration targets a GitHub Pages user site with Vite base `/`. The published routes are `#home`, `#gallery`, `#writing`, `#projects`, and `#about`. Previous links such as `/#/about` and `/#/projects` remain supported. Vite builds both index.html and prototypes/index.html. GitHub Pages publishes the root of the gh-pages branch.
 
-发布前检查 Git remote、GitHub Pages 发布来源和写入权限，再执行 `npm run deploy`。该命令会写入远端；本地验证使用 build 和 preview。仓库中没有 GitHub Actions 工作流，本轮未验证线上状态。
+Before publishing, check the Git remote, GitHub Pages publishing source, and write permissions, then run `npm run deploy`. This command writes to the remote; use build and preview for local verification. The repository has no GitHub Actions workflows. Deployment verification is recorded in docs/MAINTENANCE.md.
 
-## 维护文档
+## Maintenance Documentation
 
-- [AGENTS.md](AGENTS.md)：编码代理工作规则。
-- [架构说明](docs/ARCHITECTURE.md)：组件、路由、主题和工具链。
-- [维护基线与待办](docs/MAINTENANCE.md)：已有问题及验证清单。
+- [AGENTS.md](AGENTS.md): Instructions for coding agents.
+- [Architecture](docs/ARCHITECTURE.md): Components, routing, themes, and tooling.
+- [Maintenance Baseline and Tasks](docs/MAINTENANCE.md): Known issues and verification checklists.
 
-已清理构建时触发环境变量警告的过时 HTML 注释（2026-10-21）。尚无自动化测试配置；验证记录见维护文档。
+An outdated HTML comment that triggered an environment-variable build warning was removed on 2026-10-21. No automated test runner is configured; see the maintenance documentation for validation records.
 
-## 许可证
+## License
 
-旧 README 标注 MIT，但仓库没有 LICENSE 文件；许可证文本与版权归属待所有者确认。
+The previous README listed MIT, but the repository has no LICENSE file. The license text and copyright ownership await confirmation from the owner.
 
-## 設計原型
+## Design Prototype
 
-已確認的改版方向見 [PRODUCT.md](PRODUCT.md)、[最新設計決策（ADR 002）](docs/decisions/002-content-first-home.md) 和 [內容模型](docs/CONTENT-MODEL.md)。執行開發伺服器後，開啟 `/prototypes/index.html` 查看已選用的 A 風格原型：首頁呈現介紹與內容入口，已移除畫布、控制台及 A/B 切換。Projects 與 About 現在分別位於原型內的 `#projects`、`#about`，沿用 A 風格與既有內容事實。[原型說明](prototypes/README.md) 記錄功能與限制。歷史 A/B 記錄不代表目前介面；正式 React 網站布局尚未替換。
+The confirmed redesign direction is documented in [PRODUCT.md](PRODUCT.md), [the latest design decision (ADR 002)](docs/decisions/002-content-first-home.md), and [the content model](docs/CONTENT-MODEL.md).
+
+After starting the development server, open `/prototypes/index.html` to view the selected A-style prototype. The homepage presents an introduction and content entry points; the canvas, console, and A/B switch have been removed. Projects and About are available within the prototype at `#projects` and `#about`, using the same A styling and existing factual content.
+
+The [prototype README](prototypes/README.md) describes its features and limitations. Historical A/B records do not represent the current interface. The selected design is now the production homepage. The production entry omits the design-study banner and follows the system theme on first visit, then persists manual changes using the theme storage key. The prototype remains available at /prototypes/index.html.

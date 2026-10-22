@@ -20,4 +20,4 @@ Dark charcoal surfaces, diagonal texture, substantial rounded panel edges, pill 
 Six real projects and biography in existing TSX files. No drawings or writing supplied yet. Use honest empty states, never fictitious published content.
 
 ## Current Delivery
-A selected; canvas and control console removed at the request of the user. Single content-first prototype with shared Gallery/Writing empty states, not a production migration. See ADR 002. Markdown rendering and content publishing remain future work.
+A selected; canvas and control console removed at the request of the user. The selected content-first design is now promoted to the production root homepage, with shared Gallery/Writing empty states and Projects/About pages; the design preview remains at /prototypes/index.html. See ADR 002. Markdown rendering and content publishing remain future work.

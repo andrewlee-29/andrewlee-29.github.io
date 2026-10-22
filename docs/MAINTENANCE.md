@@ -83,3 +83,9 @@ Projects 與 About 已加入原型內的 `#projects`、`#about`，沿用已選�
 - 瀏覽器確認動畫 transform 變化、暫停及重新整理後保留暫停設定，console error 為空。
 - 桌面深色、375px 深色與淺色截圖檢查；手機沒有水平溢位。
 - CSS 提供 prefers-reduced-motion 靜態替代，visibilitychange 暫停隱藏分頁；這兩項以原始碼檢查，未模擬作業系統偏好或實測 GPU 效能。
+
+## 2026-10-22 Publish selected design
+
+The user approved publishing the selected prototype as the root homepage. Root index.html now uses the shared prototype CSS/JS and content data, without the review banner. Vite builds both HTML entries. First-visit production theme follows the system; manual overrides persist under theme.
+
+Verified: production build and lint pass; all five built routes load after refresh; legacy /#/about and /#/projects work; back/forward works; light theme persists after refresh; narrow About layout has no horizontal overflow and four experience entries; browser console errors are empty. GitHub Pages API confirms gh-pages with source path /.

@@ -1,3 +1,10 @@
+# Published architecture — 2026-10-22
+
+The production entry is now root index.html, promoted from the selected A prototype at the user's request. Vite builds both this entry and prototypes/index.html. Both share prototypes/style.css, prototype.js and profile.js; profile.js consumes src/data/projects.ts and experiences.ts. Production omits the review banner. The root entry follows the system theme initially and stores manual overrides under theme. The preview retains prototype-theme and its dark default.
+
+Hash routes are #home, #gallery, #writing, #projects, and #about, with legacy /#/about and /#/projects aliases. No artificial loading screen or React runtime is loaded by the new entry. Existing React source remains for reference and still passes TypeScript checks. Gallery and Writing retain honest empty states; content publishing remains deferred.
+
+npm run deploy builds dist/ and publishes it to the gh-pages branch, which is the configured GitHub Pages source. The sections below describe the earlier React architecture and historical prototype work.
 # 网站架构
 
 基于 2026-10-20 本地源码整理，2026-10-21 更新共享内容数据与原型说明，不代表线上状态。
