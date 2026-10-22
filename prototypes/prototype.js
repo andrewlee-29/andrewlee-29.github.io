@@ -5,6 +5,23 @@ document.querySelector('.skip').addEventListener('click', (event) => {
   main.focus();
 });
 const themeButton = document.querySelector('.theme');
+const motionButton = document.querySelector('.motion-toggle');
+function setMotionPaused(paused) {
+  document.body.classList.toggle('motion-paused', paused);
+  motionButton.textContent = paused ? 'Resume background' : 'Pause background';
+  motionButton.setAttribute('aria-pressed', String(paused));
+}
+try { setMotionPaused(localStorage.getItem('prototype-motion-paused') === 'true'); } catch { /* Storage is optional. */ }
+motionButton.addEventListener('click', () => {
+  const paused = !document.body.classList.contains('motion-paused');
+  setMotionPaused(paused);
+  try { localStorage.setItem('prototype-motion-paused', String(paused)); } catch { /* Storage is optional. */ }
+});
+function syncVisibility() {
+  document.body.classList.toggle('page-hidden', document.hidden);
+}
+document.addEventListener('visibilitychange', syncVisibility);
+syncVisibility();
 function setTheme(light) {
   document.body.classList.toggle('light', light);
   themeButton.textContent = light ? 'Dark mode' : 'Light mode';
@@ -19,15 +36,15 @@ themeButton.addEventListener('click', () => {
   try { localStorage.setItem('prototype-theme', light ? 'light' : 'dark'); } catch { /* Optional persistence. */ }
 });
 function route() {
-  const page = ['gallery', 'writing'].includes(location.hash.slice(1)) ? location.hash.slice(1) : 'home';
-  ['home', 'gallery', 'writing'].forEach(id => { document.getElementById(id).hidden = id !== page; });
+  const page = ['gallery', 'writing', 'projects', 'about'].includes(location.hash.slice(1)) ? location.hash.slice(1) : 'home';
+  ['home', 'gallery', 'writing', 'projects', 'about'].forEach(id => { document.getElementById(id).hidden = id !== page; });
   document.querySelector('.below').hidden = page !== 'home';
   document.querySelector('.project-strip').hidden = page !== 'home';
   document.querySelectorAll('nav a').forEach(link => {
     if (link.hash === `#${page}`) link.setAttribute('aria-current', 'page');
     else link.removeAttribute('aria-current');
   });
-  document.title = `${page === 'home' ? 'Home' : page === 'gallery' ? 'Gallery' : 'Writing'} — Andrew Lee · Prototype`;
+  document.title = `${page.charAt(0).toUpperCase() + page.slice(1)} — Andrew Lee · Prototype`;
   window.scrollTo(0, 0);
 }
 document.querySelectorAll('.filters button').forEach(button => button.addEventListener('click', () => {

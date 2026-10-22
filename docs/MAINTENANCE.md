@@ -61,3 +61,25 @@
 - 未知 hash 路由显示 404 和 Back to home，可返回首页。
 - About 社交链接可按可访问名称定位；浅色切换后刷新保持，随后恢复原深色。
 - 本轮不包含正式新版迁移、Markdown 内容管线或部署。其余未勾选待办仍需后续处理。
+
+## 2026-10-21 Projects / About 原型延伸
+
+Projects 與 About 已加入原型內的 `#projects`、`#about`，沿用已選定的 A 風格。六項專案與四段工作經歷原值抽取到 `src/data/projects.ts`、`src/data/experiences.ts`，由正式元件與原型共用；About 保留既有簡介事實。正式 React 布局未遷移，原型未加入正式 build。
+
+- `npm run build`、`npm run lint` 通過；修正檔尾多餘空行後 `git diff --check` 通過。
+- 原型桌面與手機深色截圖已完成視覺審查；375px 瀏覽器檢查無水平溢出，顯示六項專案與四段工作經歷。
+- 原型 Projects / About 刷新、瀏覽器前進與後退、淺色偏好持續保存通過，未發現 console error。
+- 原型五個導覽連結均可切換；320px 的 About / Projects 無水平溢出，Tab 可聚焦 About GitHub 連結並顯示實線焦點框。
+- 正式首頁 Loader 結束後標題可見；正式 About / Projects 直接進入與刷新後標題可見，console error 為空。正式主題與手機布局本輪未重新完整驗證。
+- 自動視覺偵測器因引擎安裝權限限制未執行；以上視覺結論來自瀏覽器與截圖審查。
+- 本節未宣稱正式 React 三條路由的完整 smoke test，也未執行部署。
+- 已知設計文檔落差：`DESIGN.md` 的 Components 仍寫 Projects / About 保留既有目的地；目前已改為原型內視圖。本輪僅延伸既有風格，未改寫設計 token 或設計文件。
+
+## 2026-10-22 原型斜線動態背景
+
+依使用者提供的 ZZZ 參考圖加入共用 CSS 斜線背景；此要求允許背景動畫，不恢復舊畫布與控制台。五個原型路由共用，正式 React 網站未部署或更換。
+
+- build、lint、git diff --check 通過。
+- 瀏覽器確認動畫 transform 變化、暫停及重新整理後保留暫停設定，console error 為空。
+- 桌面深色、375px 深色與淺色截圖檢查；手機沒有水平溢位。
+- CSS 提供 prefers-reduced-motion 靜態替代，visibilitychange 暫停隱藏分頁；這兩項以原始碼檢查，未模擬作業系統偏好或實測 GPU 效能。

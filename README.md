@@ -27,8 +27,10 @@ npm run dev
 | --- | --- |
 | src/Pages/Home.tsx | 首页介绍 |
 | src/Pages/About.tsx | 简介、技能、学历描述、社交与邮箱链接 |
-| src/Pages/Project.tsx | 项目数据与列表 |
-| src/Components/Timeline.tsx | 工作经历数据和滚动时间线 |
+| src/data/projects.ts | 六个项目的共享数据，供正式页面与原型使用 |
+| src/data/experiences.ts | 四段工作经历的共享数据，供正式时间线与原型使用 |
+| src/Pages/Project.tsx | 项目列表 |
+| src/Components/Timeline.tsx | 滚动时间线 |
 | src/Components/ProjectCard.tsx | 项目卡片 |
 | src/Components/Navbar.tsx | 导航和深浅色切换 |
 | src/Components/Loader.tsx | 加载动画 |
@@ -55,4 +57,4 @@ npm run dev
 
 ## 設計原型
 
-已確認的改版方向見 [PRODUCT.md](PRODUCT.md)、[最新設計決策（ADR 002）](docs/decisions/002-content-first-home.md) 和 [內容模型](docs/CONTENT-MODEL.md)。執行開發伺服器後，開啟 `/prototypes/index.html` 查看已選用的 A 風格原型：首頁呈現介紹與內容入口，已移除畫布、控制台及 A/B 切換。[原型說明](prototypes/README.md) 記錄功能與限制。歷史 A/B 記錄不代表目前介面；正式 React 網站尚未替換。
+已確認的改版方向見 [PRODUCT.md](PRODUCT.md)、[最新設計決策（ADR 002）](docs/decisions/002-content-first-home.md) 和 [內容模型](docs/CONTENT-MODEL.md)。執行開發伺服器後，開啟 `/prototypes/index.html` 查看已選用的 A 風格原型：首頁呈現介紹與內容入口，已移除畫布、控制台及 A/B 切換。Projects 與 About 現在分別位於原型內的 `#projects`、`#about`，沿用 A 風格與既有內容事實。[原型說明](prototypes/README.md) 記錄功能與限制。歷史 A/B 記錄不代表目前介面；正式 React 網站布局尚未替換。

@@ -1,6 +1,6 @@
 # 网站架构
 
-基于 2026-10-20 本地源码整理，不代表线上状态。
+基于 2026-10-20 本地源码整理，2026-10-21 更新共享内容数据与原型说明，不代表线上状态。
 
 ## 启动和页面
 
@@ -8,10 +8,10 @@
 
 - `/#/`：Home，欢迎语和简单介绍。
 - `/#/about`：About，个人介绍、技能图标、社交链接、工作经历与邮箱。
-- `/#/projects`：Project，将六项内联数据映射为 ProjectCard。
+- `/#/projects`：Project，将 `src/data/projects.ts` 的六项数据映射为 ProjectCard。
 - 其他 hash 路径：NotFound，显示 404 和回首页入口。
 
-没有业务 API、后端、数据库、CMS 或登录。内容直接维护在 TSX 中。Google Fonts 提供 Electrolize 字体，另有用户主动打开的社交、项目和论文链接。
+没有业务 API、后端、数据库、CMS 或登录。简介内容维护在 TSX 中；项目与工作经历维护在 `src/data/` 的共享 TypeScript 模块中。Google Fonts 提供 Electrolize 字体，另有用户主动打开的社交、项目和论文链接。
 
 ## 加载流程
 
@@ -29,7 +29,7 @@ Tailwind 负责布局和主题色；Framer Motion 用于标题、技能、社交
 
 ## 工作经历
 
-Timeline 同时保存四段经历和展示逻辑。通过 window scroll 监听和列表相对视口的位置计算进度条高度；卸载时清理监听器。描述使用字符串换行与 `whitespace-pre-line`。目前没有 resize 监听。
+Timeline 从 `src/data/experiences.ts` 读取四段经历并负责展示逻辑。通过 window scroll 监听和列表相对视口的位置计算进度条高度；卸载时清理监听器。描述使用字符串换行与 `whitespace-pre-line`。目前没有 resize 监听。
 
 ## 工具链
 
@@ -46,3 +46,5 @@ Timeline 同时保存四段经历和展示逻辑。通过 window scroll 监听�
 
 
 目前原型已依 ADR 002 選用 A，並移除畫布、控制台及 A/B 切換；首頁改為介紹與內容入口。歷史 A/B 記錄不代表目前介面。正式 React 網站未替換。
+
+2026-10-21 新增原型內的 `#projects` 與 `#about` 視圖，沿用 A 主題。`prototypes/profile.js` 從 `src/data/projects.ts`、`src/data/experiences.ts` 渲染共享內容；正式 Project 與 Timeline 也讀取這兩個模組，原有資料值與正式布局保持不變。原型 About 的簡介 markup 位於 `prototypes/index.html`，保留正式 About 的內容事實，後續修改需同步檢查兩個呈現。原型仍透過 Vite 開發伺服器預覽，並非正式 build 入口。
