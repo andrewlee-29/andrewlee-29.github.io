@@ -20,4 +20,4 @@ Dark charcoal surfaces, diagonal texture, substantial rounded panel edges, pill 
 Six real projects and biography in existing TSX files. No drawings or writing supplied yet. Use honest empty states, never fictitious published content.
 
 ## Current Delivery
-A selected; canvas and control console removed at the request of the user. The selected content-first design is now promoted to the production root homepage, with shared Gallery/Writing empty states and Projects/About pages; the design preview remains at /prototypes/index.html. See ADR 002. Markdown rendering and content publishing remain future work.
+A / Street Poster selected from three image concepts on 2026-10-28 and implemented at the production root homepage. Oversized condensed typography, twin opposing printed ribbons, and Drawing/Writing panels extend the content-first direction; canvas and console remain excluded. Gallery/Writing empty states and Projects/About retain their existing content. The historical preview remains at /prototypes/index.html. See ADR 003 and DESIGN.md. Markdown rendering and content publishing remain future work.

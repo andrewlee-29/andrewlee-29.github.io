@@ -1,45 +1,39 @@
 ---
-name: Andrew Lee — Selected A prototype
-description: Selected A content-first prototype; canvas and console removed. Not production style authority.
+name: Andrew Lee — Street Poster
+description: Production Street Poster direction selected on 2026-10-28. Historical prototype remains separate.
 colors:
   primary: "#c3e52b"
   primary-hover: "#d4f342"
   ink: "#101207"
-  charcoal-bg: "#171817"
-  charcoal-surface: "#242522"
+  charcoal-bg: "#141514"
+  charcoal-surface: "#1c1d1b"
   charcoal-inset: "#10110f"
   cream-text: "#f1f1e7"
-  muted-text: "#b0b2a6"
-  charcoal-line: "#43453c"
+  muted-text: "#b8baaf"
+  charcoal-line: "#45473f"
   light-bg: "#eeeee5"
-  light-surface: "#e1e2d7"
-  light-inset: "#f9f9f0"
+  light-surface: "#f6f6ed"
+  light-inset: "#e0e2d7"
   light-text: "#20231a"
-  light-muted: "#5c6052"
-  light-line: "#b4b8a6"
-  cream-ink: "#ebe7cf"
-  orange-ink: "#f09456"
+  light-muted: "#585c50"
+  light-line: "#a6aa98"
 typography:
   display:
     fontFamily: "Barlow Condensed, sans-serif"
-    fontSize: "clamp(48px, 5vw, 78px)"
+    fontSize: "clamp(72px, 8.8vw, 142px)"
     fontWeight: 800
     lineHeight: 0.91
     letterSpacing: "-0.025em"
   title:
     fontFamily: "Barlow Condensed, sans-serif"
-    fontSize: "30px"
-    fontWeight: 700
-    lineHeight: 1.1
+    fontSize: "38px"
+    fontWeight: 800
+    lineHeight: 1
   body:
     fontFamily: "Barlow, sans-serif"
     fontSize: "16px"
     fontWeight: 400
     lineHeight: 1.5
-  editorial:
-    fontFamily: "Georgia, serif"
-    fontSize: "78px"
-    fontWeight: 400
 rounded:
   panel: "16px"
   pill: "28px"
@@ -64,25 +58,25 @@ components:
 ---
 
 ## Overview
-A is selected. ADR 002 removes the canvas and console from the active prototype. Production React styles remain separate. The retained world is charcoal, warm-white text and acid-lime emphasis.
+A / Street Poster is the production direction selected from three image proposals on 2026-10-28. See ADR 003 and docs/design/street-poster-a.png. This is distinct from the historical A prototype at /prototypes/index.html. Root index.html loads src/street.css after the shared prototype stylesheet. No React migration was introduced.
 
 ## Colors
-See frontmatter for retained theme colors. Canvas ink colors in the historical palette are no longer used in the interface.
+See frontmatter for production theme colors. Acid lime identifies primary actions; active navigation adds a dot as a second signal. Light mode uses dark olive active-navigation text (#4e6100) and focus outlines (#526600) against paper surfaces. Decorative lettering is #242622 in dark mode and #d9dbcf in light mode.
 
 ## Typography
-Barlow Condensed bold display, Barlow body via Google Fonts, with sans-serif fallback. Homepage heading uses clamp(56px,6vw,86px), 64px on mobile. Writing preview uses Georgia headings.
+Barlow Condensed 800 display and Barlow body via the existing Google Fonts import, with sans-serif fallbacks. Desktop hero uses clamp(72px,8.8vw,142px) across three explicit text lines; mobile uses clamp(52px,11.7vw,80px) with natural wrapping. Body copy remains readable at 16px or above. Production page headings share the condensed voice; the existing Writing empty-state subheading retains Georgia.
 
 ## Layout
-A content-first header and introduction. Hero uses two equal columns with 60px horizontal gap; headline spans two rows while introduction and links occupy the right column. At 650px and below it stacks vertically. Drawings and writing form two columns on desktop and one on mobile. Projects follows beneath. No experiment, console, B variant or empty space reserved for these remains.
+The desktop hero allocates 42% to the twin printed ribbons and 58% to the headline, intro and actions. At 1050px the ribbon share reduces to 37%. Below the hero, Drawing/Writing panels use a 1.5:1 split. At 700px and below, ribbons become a shallow cropped strip above the headline, navigation wraps into its own row, and panels stack. Projects follows below. Subpages keep stable reading surfaces and existing factual content.
 
 ## Elevation & Depth
-Thin dividers separate content; controls use restrained surfaces. No immersive title shadow or control-panel texture remains. Gallery empty frame remains a visual placeholder, not an artwork.
+Opaque inset panels protect reading areas. Oversized low-contrast background lettering and a subtle halftone field provide print texture. Twin lime/cream ribbons use their own clipped containers, so the graphics never overlap the functional headline. Empty frames and line icons communicate absent content without inventing artworks.
 
 ## Shapes
-Pill buttons and theme control retain the approved reference language.
+Pill primary actions and theme control, a rounded navigation bar, 14px content-panel corners, 16px reading-panel corners, and thin horizontal rules. Panel title links inherit the title font size rather than the shared small-link style.
 
 ## Components
-Navigation: Home, Gallery, Writing, Projects, About. Existing Projects/About destinations remain. Gallery/Writing are honest empty states. Writing filters update the empty result. Theme preference persists separately from production. Skip link focuses main. No canvas, range controls, draw mode, animation loop, pause or reset exists.
+Navigation: Home, Gallery, Writing, Projects, About. Legacy /#/projects and /#/about aliases remain. Gallery/Writing are honest empty states, and Writing filters update the empty result. Production follows the system theme initially; manual theme changes persist under theme. The historical prototype uses prototype-theme. Skip link focuses main. The footer background pause uses the existing prototype-motion-paused key and pauses all three CSS animations. Hidden tabs also pause movement; reduced motion stops it. No canvas or console exists.
 
 ## Do's and Don'ts
-Preserve content-first A; do not restore the experiment without a new request. Keep both themes and keyboard focus usable. Do not fabricate drawings/articles. Full content-detail typography and publishing remain deferred. Historical A/B screenshots document superseded explorations, not current acceptance criteria.
+Keep the selected poster composition while preserving content readability, both themes and keyboard access. Do not fabricate drawings/articles or restore the removed canvas and console. Full content-detail typography and publishing remain deferred. Historical prototype screenshots document earlier explorations, not current production acceptance criteria.

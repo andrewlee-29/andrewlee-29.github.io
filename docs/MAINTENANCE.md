@@ -1,5 +1,20 @@
 # 维护基线与待办
 
+## 2026-10-28 Street Poster A
+
+Implemented the user's selected A image direction at the production root: twin opposing printed ribbons, oversized condensed headline, dark rounded navigation, and Drawing/Writing empty-state panels. Production-only src/street.css also provides light and narrow-screen layouts; the historical prototype keeps its layout. The accepted image and scope are recorded in ADR 003. Biography, shared project/employment data, and external destinations are unchanged.
+
+- npm run build and npm run lint passed. No dependencies added.
+- Browser checks: all five routes switch and remain correct after refresh; back/forward and legacy /#/projects and /#/about work. No browser warning/error logs were observed.
+- At 320px, all five routes have scrollWidth = clientWidth (305px excluding the scrollbar); six projects and four experience entries are present. Desktop 1536px and mobile 375px screenshots were reviewed in dark/light themes.
+- Theme changes survive refresh. Writing's Tech filter shows its matching empty state. Skip-to-content focuses main; existing new-tab links retain noopener/noreferrer.
+- Background pause survives refresh and puts both ribbon tracks and the ambient type animation into the paused state. Reduced-motion and hidden-tab rules were reviewed in source; OS preference and tab-visibility simulation were not performed.
+- Local screenshots are under ignored docs/review/. No deployment was performed.
+
+Follow-up: fixed the cream ribbon's vertical clipping by anchoring both rotated desktop ribbons from their bottom-right corners instead of positioning their unrotated boxes from the top-left. This keeps the slanted outer edges inside the decorative container through its full height. Mobile retains its original positioning. Build/lint passed; desktop and 375px browser screenshots were reviewed, with no horizontal overflow.
+
+The dated entries below describe earlier baselines; use the current architecture and ADR 003 for production source/layout guidance.
+
 ## 2026-10-20 验证
 
 本轮仅初始化项目文档，未修改运行时代码、依赖版本或发布站点。

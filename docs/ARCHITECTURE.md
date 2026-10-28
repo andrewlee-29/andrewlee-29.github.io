@@ -1,6 +1,8 @@
-# Published architecture — 2026-10-22
+# Published architecture — 2026-10-28
 
-The production entry is now root index.html, promoted from the selected A prototype at the user's request. Vite builds both this entry and prototypes/index.html. Both share prototypes/style.css, prototype.js and profile.js; profile.js consumes src/data/projects.ts and experiences.ts. Production omits the review banner. The root entry follows the system theme initially and stores manual overrides under theme. The preview retains prototype-theme and its dark default.
+The production entry is root index.html. Vite builds both this entry and prototypes/index.html. Both share prototypes/style.css, prototype.js and profile.js; profile.js consumes src/data/projects.ts and experiences.ts. Production additionally loads src/street.css for the selected Street Poster direction (ADR 003); the historical prototype does not load it. Production omits the review banner. The root entry follows the system theme initially and stores manual overrides under theme. The preview retains prototype-theme and its dark default.
+
+Production decoration uses an aria-hidden fixed ambient-typography layer and two clipped hero ribbons. CSS moves repeated ribbon content in opposite directions without moving the ribbon frames. The existing motion-paused and page-hidden classes pause all three animations; prefers-reduced-motion removes them. Ribbons recompose above the headline at 700px and below, and content panels stack. All content and navigation remain HTML, with no new framework or dependencies.
 
 Hash routes are #home, #gallery, #writing, #projects, and #about, with legacy /#/about and /#/projects aliases. No artificial loading screen or React runtime is loaded by the new entry. Existing React source remains for reference and still passes TypeScript checks. Gallery and Writing retain honest empty states; content publishing remains deferred.
 

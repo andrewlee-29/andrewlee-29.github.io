@@ -23,10 +23,11 @@ Open the local URL printed by Vite.
 
 ## Content and Source Files
 
-The published entry is index.html. It shares prototypes/style.css, prototypes/prototype.js, and prototypes/profile.js with the design preview. React page and component files listed below belong to the previous implementation.
+The published entry is index.html. It shares prototypes/style.css, prototypes/prototype.js, and prototypes/profile.js with the design preview, then loads production-only src/street.css for the selected Street Poster design. React page and component files listed below belong to the previous implementation.
 
 | File | Responsibility |
 | --- | --- |
+| src/street.css | Production Street Poster layout, themes, printed ribbons, and reduced-motion styles |
 | src/Pages/Home.tsx | Homepage introduction |
 | src/Pages/About.tsx | Biography, skills, education, social links, and email |
 | src/data/projects.ts | Shared data for six projects, used by production pages and the prototype |
@@ -59,8 +60,8 @@ The previous README listed MIT, but the repository has no LICENSE file. The lice
 
 ## Design Prototype
 
-The confirmed redesign direction is documented in [PRODUCT.md](PRODUCT.md), [the latest design decision (ADR 002)](docs/decisions/002-content-first-home.md), and [the content model](docs/CONTENT-MODEL.md).
+The confirmed redesign direction is documented in [PRODUCT.md](PRODUCT.md), [the latest design decision (ADR 003)](docs/decisions/003-street-poster.md), and [the content model](docs/CONTENT-MODEL.md).
 
-After starting the development server, open `/prototypes/index.html` to view the selected A-style prototype. The homepage presents an introduction and content entry points; the canvas, console, and A/B switch have been removed. Projects and About are available within the prototype at `#projects` and `#about`, using the same A styling and existing factual content.
+After starting the development server, open `/` for the production Street Poster design, selected from the three image concepts on 2026-10-28. The [approved reference](docs/design/street-poster-a.png) guides its oversized headline, twin printed ribbons, and Drawing/Writing panels. Open `/prototypes/index.html` to view the historical content-first prototype. Its layout remains unchanged. Both retain Projects and About with existing factual content; neither includes a canvas or console.
 
-The [prototype README](prototypes/README.md) describes its features and limitations. Historical A/B records do not represent the current interface. The selected design is now the production homepage. The production entry omits the design-study banner and follows the system theme on first visit, then persists manual changes using the theme storage key. The prototype remains available at /prototypes/index.html.
+The [prototype README](prototypes/README.md) describes its features and limitations. Historical A/B records do not represent the current production interface. The production entry omits the design-study banner and follows the system theme on first visit, then persists manual changes using the theme storage key. Background pause also persists; reduced-motion preferences stop the ribbons and ambient typography.
