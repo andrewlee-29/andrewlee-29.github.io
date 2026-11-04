@@ -1,5 +1,19 @@
 # 维护基线与待办
 
+## 2026-11-04 Street Poster texture refinement
+
+Motion correction: moved both abrasion overlays from the stationary ribbon frame to each moving ribbon-repeat half. Texture and lettering now inherit the same track transform, with matching texture phase in both loop halves. Browser samples measured matching vertical displacement for texture owners and words (lime: -217.89px; cream: +186.76px). Build, lint, and diff checks passed. Capture: docs/review/street-ribbons-moving-wear.png.
+
+Follow-up focused exclusively on the ribbons, using the user's close-up: enlarged desktop bands and name lettering (ANDREW / LEE), print identifiers and registration crosses, and dedicated edge abrasion in ribbon-distress.svg. Background and content styling were preserved from the preceding pass. Repeated animation halves cover at least 1440px on mobile, exceeding the 1300px frame to prevent exposed blank tails. Build/lint/diff checks passed; desktop and mobile screenshots were reviewed and mobile reported no horizontal overflow. Capture: docs/review/street-ribbons-2026-11-04.png. No deployment.
+
+Strengthened the existing homepage's printed character: static irregular ink flecks on both ribbons, localized halftone fields, and larger skewed background lettering anchored in the first viewport. Ribbon positions, copy, navigation, and motion controls remain unchanged. The reusable public/textures/ink-wear.svg contains static vector paths, with no runtime filters or new dependencies.
+
+- npm run build, npm run lint, and git diff --check passed.
+- Browser reviewed desktop (1536px) and mobile (375px) in dark/light themes. All five routes showed no horizontal overflow at both sizes; desktop routes also passed direct entry and refresh, with back/forward checked.
+- Theme and background pause persisted after refresh; all three decorative animations reported paused. Restored dark mode and running animation for the preview. Reduced-motion rules remain unchanged; OS preference simulation was not performed.
+- Browser warning/error logs were empty. Final local capture: docs/review/street-texture-2026-11-04.png (ignored).
+- No deployment or commit performed.
+
 ## 2026-10-28 Street Poster A
 
 Implemented the user's selected A image direction at the production root: twin opposing printed ribbons, oversized condensed headline, dark rounded navigation, and Drawing/Writing empty-state panels. Production-only src/street.css also provides light and narrow-screen layouts; the historical prototype keeps its layout. The accepted image and scope are recorded in ADR 003. Biography, shared project/employment data, and external destinations are unchanged.

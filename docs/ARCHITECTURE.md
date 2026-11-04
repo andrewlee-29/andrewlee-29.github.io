@@ -4,6 +4,8 @@ The production entry is root index.html. Vite builds both this entry and prototy
 
 Production decoration uses an aria-hidden fixed ambient-typography layer and two clipped hero ribbons. CSS moves repeated ribbon content in opposite directions without moving the ribbon frames. The existing motion-paused and page-hidden classes pause all three animations; prefers-reduced-motion removes them. Ribbons recompose above the headline at 700px and below, and content panels stack. All content and navigation remain HTML, with no new framework or dependencies.
 
+The 2026-11-04 texture refinement uses public/textures/ink-wear.svg, a static vector tile shared by CSS backgrounds and masks. Ambient type is skewed and anchored near the top so its horizontal animation keeps lettering in the first viewport. Localized halftone masks add edge texture without changing content, routing, ribbon positions, or animation controls.
+
 Hash routes are #home, #gallery, #writing, #projects, and #about, with legacy /#/about and /#/projects aliases. No artificial loading screen or React runtime is loaded by the new entry. Existing React source remains for reference and still passes TypeScript checks. Gallery and Writing retain honest empty states; content publishing remains deferred.
 
 npm run deploy builds dist/ and publishes it to the gh-pages branch, which is the configured GitHub Pages source. The sections below describe the earlier React architecture and historical prototype work.

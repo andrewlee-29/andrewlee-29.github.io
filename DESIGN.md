@@ -5,7 +5,7 @@ colors:
   primary: "#c3e52b"
   primary-hover: "#d4f342"
   ink: "#101207"
-  charcoal-bg: "#141514"
+  charcoal-bg: "#0e0f0e"
   charcoal-surface: "#1c1d1b"
   charcoal-inset: "#10110f"
   cream-text: "#f1f1e7"
@@ -61,7 +61,7 @@ components:
 A / Street Poster is the production direction selected from three image proposals on 2026-10-28. See ADR 003 and docs/design/street-poster-a.png. This is distinct from the historical A prototype at /prototypes/index.html. Root index.html loads src/street.css after the shared prototype stylesheet. No React migration was introduced.
 
 ## Colors
-See frontmatter for production theme colors. Acid lime identifies primary actions; active navigation adds a dot as a second signal. Light mode uses dark olive active-navigation text (#4e6100) and focus outlines (#526600) against paper surfaces. Decorative lettering is #242622 in dark mode and #d9dbcf in light mode.
+See frontmatter for production theme colors. Acid lime identifies primary actions; active navigation adds a dot as a second signal. Light mode uses dark olive active-navigation text (#4e6100) and focus outlines (#526600) against paper surfaces. Decorative lettering is #30322e in dark mode and #d9dbcf in light mode.
 
 ## Typography
 Barlow Condensed 800 display and Barlow body via the existing Google Fonts import, with sans-serif fallbacks. Desktop hero uses clamp(72px,8.8vw,142px) across three explicit text lines; mobile uses clamp(52px,11.7vw,80px) with natural wrapping. Body copy remains readable at 16px or above. Production page headings share the condensed voice; the existing Writing empty-state subheading retains Georgia.
@@ -70,7 +70,10 @@ Barlow Condensed 800 display and Barlow body via the existing Google Fonts impor
 The desktop hero allocates 42% to the twin printed ribbons and 58% to the headline, intro and actions. At 1050px the ribbon share reduces to 37%. Below the hero, Drawing/Writing panels use a 1.5:1 split. At 700px and below, ribbons become a shallow cropped strip above the headline, navigation wraps into its own row, and panels stack. Projects follows below. Subpages keep stable reading surfaces and existing factual content.
 
 ## Elevation & Depth
-Opaque inset panels protect reading areas. Oversized low-contrast background lettering and a subtle halftone field provide print texture. Twin lime/cream ribbons use their own clipped containers, so the graphics never overlap the functional headline. Empty frames and line icons communicate absent content without inventing artworks.
+Opaque inset panels protect reading areas. Oversized skewed background lettering stays anchored in the first viewport, with localized halftone fields at the edges. The static vector flecks in public/textures/ink-wear.svg add irregular ink wear to the background and both lime/cream ribbons; ribbon lettering also receives paper-colored flecks to simulate missing ink. No runtime noise filter is used. Twin ribbons retain their positions and clipped containers, so the graphics never overlap the functional headline. Empty frames and line icons communicate absent content without inventing artworks.
+
+## Ribbon close-up refinement — 2026-11-04
+Desktop bands are 190px wide (215px on wide screens), with oversized ANDREW on lime and stretched LEE on cream. Small print identifiers and registration crosses follow the supplied crop. Dedicated public/textures/ribbon-distress.svg now replaces the ribbons' earlier ink-wear.svg texture and concentrates abrasion at the edges; the background retains ink-wear.svg. Each animated half contains four prints, covering the full clipped frame even on mobile. Opposing loops take 120s / 140s.
 
 ## Shapes
 Pill primary actions and theme control, a rounded navigation bar, 14px content-panel corners, 16px reading-panel corners, and thin horizontal rules. Panel title links inherit the title font size rather than the shared small-link style.
