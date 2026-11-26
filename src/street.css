@@ -60,6 +60,12 @@
   mask-image: radial-gradient(ellipse at 0 45%, #000, transparent 34%), radial-gradient(ellipse at 100% 15%, #000, transparent 32%);
   opacity: .22;
 }
+/* Paper needs quieter, localized wear than the charcoal background. */
+.street.light .street-backdrop::before {
+  opacity: .16;
+  mask-image: linear-gradient(90deg, #000, transparent 32%, transparent 82%, #0008);
+}
+.street.light .street-backdrop::after { opacity: .07; }
 .street header {
   position: relative;
   z-index: 2;
@@ -131,6 +137,14 @@
   color: #14160e;
   background: var(--paper);
 }
+.ribbon::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  z-index: 3;
+  border: 2px solid #14160e;
+  pointer-events: none;
+}
 .ribbon-repeat::before {
   content: "";
   position: absolute;
@@ -161,13 +175,15 @@
   display: block;
   height: calc(var(--ribbon-width) * 5);
   padding-block: calc(var(--ribbon-width) * .35);
+  /* Keep printed content inside the 4px inset + 2px frame, with 3px clearance. */
+  clip-path: inset(0 9px);
 }
 .ribbon-word {
   display: block;
   margin: 0 auto;
   writing-mode: vertical-rl;
   white-space: nowrap;
-  font: 800 calc(var(--ribbon-width) * 1.36)/.72 var(--display);
+  font: 800 calc((var(--ribbon-width) - 20px) * 1.36)/.72 var(--display);
   letter-spacing: -.025em;
 }
 .ribbon-cream .ribbon-word { transform: scaleY(2.4); transform-origin: top; }
