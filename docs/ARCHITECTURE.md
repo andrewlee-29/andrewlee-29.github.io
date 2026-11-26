@@ -6,7 +6,11 @@ Production decoration uses an aria-hidden fixed ambient-typography layer and two
 
 The 2026-11-04 texture refinement uses public/textures/ink-wear.svg, a static vector tile shared by CSS backgrounds and masks. Ambient type is skewed and anchored near the top so its horizontal animation keeps lettering in the first viewport. Localized halftone masks add edge texture without changing content, routing, ribbon positions, or animation controls.
 
-Hash routes are #home, #gallery, #writing, #projects, and #about, with legacy /#/about and /#/projects aliases. No artificial loading screen or React runtime is loaded by the new entry. Existing React source remains for reference and still passes TypeScript checks. Gallery and Writing retain honest empty states; content publishing remains deferred.
+Hash routes are #home, #gallery, #writing, #projects, and #about, with legacy /#/about and /#/projects aliases. No artificial loading screen or React runtime is loaded by the new entry. Existing React source remains for reference and still passes TypeScript checks. Gallery retains its empty state.
+
+Production Writing loads prototypes/writing.js and writing.css. Vite imports Notes/**/*.md as raw text at build time; markdown-it renders it with raw HTML disabled. Native details/summary entries provide keyboard-accessible expansion, with the first entry open initially. Titles come from the first Markdown heading or filename, and entries sort by file path. The homepage shows the note count. No frontmatter, tag metadata, note-relative asset resolution, or separate note routes are implemented. Root-relative public assets and HTTPS asset URLs are supported. The historical prototype keeps its existing Writing empty state and filters. See README.md for publishing instructions.
+
+Each expanded note uses a two-column reader with a sticky contents navigation generated from its heading tokens. Unique note/section IDs prevent duplicate-heading collisions. Topic buttons focus and scroll to the corresponding heading without changing the hash route; reduced motion uses instant scrolling. At 800px and below, contents stack above the article. Notes without headings display an explanatory contents message.
 
 npm run deploy builds dist/ and publishes it to the gh-pages branch, which is the configured GitHub Pages source. The sections below describe the earlier React architecture and historical prototype work.
 # 网站架构

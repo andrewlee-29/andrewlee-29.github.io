@@ -40,6 +40,14 @@ The published entry is index.html. It shares prototypes/style.css, prototypes/pr
 | src/index.css | Global fonts, Tailwind, and dark-mode rules |
 | index.html / public/logo.svg | Page metadata and favicon |
 
+## Writing notes
+
+Add `.md` files to `Notes/` (including subfolders). The production Writing page automatically includes them at build time, sorted by file path. The first Markdown heading supplies the entry title, with the filename as a fallback. Entries expand with a click or keyboard; the first opens by default. No frontmatter is required or interpreted.
+
+Each expanded note has a sticky heading list on the left and its content on the right. Markdown headings (`#` through `######`) automatically populate the list; selecting a topic scrolls to and focuses its heading without changing the page route. On narrow screens the heading list sits above the content. Reduced-motion preferences disable smooth scrolling.
+
+Headings, lists, links, images, blockquotes, fenced code, and tables are rendered with markdown-it. Raw HTML is disabled. Use absolute HTTPS URLs or root-relative paths to files in `public/` for images and other assets; note-relative attachments and wiki links are not supported. All Markdown files in `Notes/` become public when the site is deployed. Rebuild and deploy to publish additions or edits. The historical prototype retains its empty state and filters.
+
 ## Deployment
 
 The configuration targets a GitHub Pages user site with Vite base `/`. The published routes are `#home`, `#gallery`, `#writing`, `#projects`, and `#about`. Previous links such as `/#/about` and `/#/projects` remain supported. Vite builds both index.html and prototypes/index.html. GitHub Pages publishes the root of the gh-pages branch.

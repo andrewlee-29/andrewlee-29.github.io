@@ -1,5 +1,16 @@
 # 维护基线与待办
 
+## 2026-11-26 Markdown writing
+
+Follow-up: added a per-note contents sidebar and right-hand article using existing theme tokens, with a stacked layout at 800px and below. Topic selection focuses and scrolls to the matching section without changing #writing. Checks passed for the supplied four-heading note, unique targets across duplicate headings/notes, formatted heading labels, scroll/focus callbacks, reduced motion, heading-free notes, and escaped HTML. Build and lint passed. The browser preview again timed out; rendered layout and real browser interaction remain unverified.
+
+Production Writing now includes Markdown files from Notes/ recursively using Vite raw imports and markdown-it with raw HTML disabled. Native expandable entries replace the production placeholder filters; the historical prototype remains unchanged. The homepage displays the note count. Notes/test.md was preserved.
+
+- npm run build, npm run lint, and git diff --check passed.
+- Direct rendering checks passed for the supplied note, heading/filename titles, first-entry expansion, nested paths, rich Markdown, unsafe HTML/link handling, empty-folder messaging, and inclusion of the note in the production bundle.
+- Browser verification was blocked: the available in-app browser timed out on both 127.0.0.1:5174 and localhost:5174. Desktop/mobile appearance, keyboard interaction, navigation, and theme persistence were not browser-verified in this change.
+- No deployment or commit performed.
+
 ## 2026-11-04 Street Poster texture refinement
 
 Motion correction: moved both abrasion overlays from the stationary ribbon frame to each moving ribbon-repeat half. Texture and lettering now inherit the same track transform, with matching texture phase in both loop halves. Browser samples measured matching vertical displacement for texture owners and words (lime: -217.89px; cream: +186.76px). Build, lint, and diff checks passed. Capture: docs/review/street-ribbons-moving-wear.png.
